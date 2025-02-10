@@ -6,7 +6,7 @@ defmodule BaseInformation do
 
   def generate_random_base_information do
     %BaseInformation{
-      name: Person.name(),
+      name: Person.first_name(),
       profession: "Warrior",
       height: Enum.random(50..120),
       weight: Enum.random(60..250)
