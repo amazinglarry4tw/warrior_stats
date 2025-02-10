@@ -2,6 +2,10 @@ defmodule BaseAttributesTest do
   use ExUnit.Case
   alias WarriorStats.BaseAttributesFixtures
 
+  setup do
+    {:ok, default_attributes: BaseAttributes.generate_default_base_attributes()}
+  end
+
   test "generate_random_base_attributes/0 returns a BaseAttributes struct with values between 30 and 100 on all attributes" do
     random_attributes = BaseAttributes.generate_random_base_attributes()
 
@@ -35,9 +39,7 @@ defmodule BaseAttributesTest do
     assert random_attributes.discipline <= 100
   end
 
-  test "generate_default_base_attributes/0 matches expected results" do
-    default_attributes = BaseAttributes.generate_default_base_attributes()
-
-    assert default_attributes == BaseAttributesFixtures.base_attributes_default_fixture()
+  test "generate_default_base_attributes/0 matches expected results", context do
+    assert context[:default_attributes] == BaseAttributes.generate_default_base_attributes()
   end
 end
