@@ -11,4 +11,15 @@ defmodule BaseAttributes do
       discipline: Enum.random(30..100)
     }
   end
+
+  def generate_default_base_attributes do
+    %BaseAttributes{
+      strength: 75,
+      constitution: 80,
+      agility: 67,
+      intelligence: 70,
+      wisdom: 52,
+      discipline: 61
+    }
+  end
 end
